@@ -1,7 +1,7 @@
 # 🛍️ Cahandar's Login
 A beautiful and functional authentication system using React and Supabase.
 
----
+(public/login_register_intro.png)
 
 ## 🚀 Features
 ✅ User Authentication (Sign In, Sign Up, Forgot Password)  
