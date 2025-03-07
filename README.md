@@ -10,7 +10,7 @@ A beautiful and functional authentication system using React and Supabase.
 ✅ Modern and Responsive UI  
 ✅ SweetAlert2 for Interactive Alerts  
 
----
+![Login Intro](public/login_register_2.png)
 
 ## 🛠️ Tech Stack
 
