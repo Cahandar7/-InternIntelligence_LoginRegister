@@ -1,7 +1,7 @@
 # 🛍️ Cahandar's Login
 A beautiful and functional authentication system using React and Supabase.
 
-(public/login_register_intro.png)
+![Login Intro](public/login_register_intro.png)
 
 ## 🚀 Features
 ✅ User Authentication (Sign In, Sign Up, Forgot Password)  
@@ -31,4 +31,4 @@ Follow these steps to run the project locally:
 1️⃣ **Clone the Repository**  
 ```sh
 git clone https://github.com/Cahandar7/-InternIntelligence_LoginRegister  
-cd your-repo  
+cd your-repo
