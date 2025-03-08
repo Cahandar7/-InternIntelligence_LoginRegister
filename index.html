@@ -5,139 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cahandar's Login</title>
-    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/src/assets/css/main.css" />
   </head>
   <body>
     <section class="layers">
       <div class="layers__container">
-        <div class="layers__item layer-1" style="background-image: url(/assets/img/layer-1.jpg)"></div>
-        <div class="layers__item layer-2" style="background-image: url(/assets/img/layer-2.png)"></div>
+        <div
+          class="layers__item layer-1"
+          style="background-image: url(/public/img/layer-1.jpg)"
+        ></div>
+        <div
+          class="layers__item layer-2"
+          style="background-image: url(/public/img/layer-2.png)"
+        ></div>
         <div class="layers__item layer-3">
           <div id="root"></div>
         </div>
         <div class="layers__item layer-4">
           <canvas class="rain"></canvas>
         </div>
-        <div class="layers__item layer-5" style="background-image: url(/assets/img/layer-5.png)"></div>
-        <div class="layers__item layer-6" style="background-image: url(/assets/img/layer-6.png)"></div>
+        <div
+          class="layers__item layer-5"
+          style="background-image: url(/public/img/layer-5.png)"
+        ></div>
+        <div
+          class="layers__item layer-6"
+          style="background-image: url(/public/img/layer-6.png)"
+        ></div>
       </div>
     </section>
-    
     <script type="module" src="/src/main.jsx"></script>
-    <script src="/assets/js/app.js" defer></script>
-    <!-- <script src="/assets/libs/rain.js" defer></script> -->
-    
-    <script>
-      window.onload = () => {
-        let canvas = document.querySelector(".rain");
-        if (canvas) {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-
-          let c = canvas.getContext("2d");
-
-          function randomNum(max, min) {
-            return Math.floor(Math.random() * max) + min;
-          }
-
-          function RainDrops(x, y, endy, velocity, opacity) {
-            this.x = x;
-            this.y = y;
-            this.endy = endy;
-            this.velocity = velocity;
-            this.opacity = opacity;
-
-            this.draw = function () {
-              c.beginPath();
-              c.moveTo(this.x, this.y);
-              c.lineTo(this.x, this.y - this.endy);
-              c.lineWidth = 1;
-              c.strokeStyle = "rgba(255, 255, 255, " + this.opacity + ")";
-              c.stroke();
-            };
-
-            this.update = function () {
-              let rainEnd = window.innerHeight + 100;
-              if (this.y >= rainEnd) {
-                this.y = this.endy - 100;
-              } else {
-                this.y = this.y + this.velocity;
-              }
-              this.draw();
-            };
-          }
-
-          let rainArray = [];
-          let numberOfRaindrops = window.innerWidth < 600 ? 60 : 140;
-
-          for (let i = 0; i < numberOfRaindrops; i++) {
-            let rainXLocation = Math.floor(Math.random() * window.innerWidth) + 1;
-            let rainYLocation = Math.random() * -500;
-            let randomRainHeight = randomNum(10, 2);
-            let randomSpeed = randomNum(20, 0.2);
-            let randomOpacity = Math.random() * 0.55;
-
-            if (window.innerWidth < 600) {
-              randomRainHeight *= 0.5;
-              randomSpeed *= 0.5;
-            }
-
-            rainArray.push(
-              new RainDrops(
-                rainXLocation,
-                rainYLocation,
-                randomRainHeight,
-                randomSpeed,
-                randomOpacity
-              )
-            );
-          }
-
-          function animateRain() {
-            requestAnimationFrame(animateRain);
-            c.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-            for (let i = 0; i < rainArray.length; i++) {
-              rainArray[i].update();
-            }
-          }
-
-          window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            rainArray = [];
-            numberOfRaindrops = window.innerWidth < 600 ? 60 : 140;
-
-            for (let i = 0; i < numberOfRaindrops; i++) {
-              let rainXLocation = Math.floor(Math.random() * window.innerWidth) + 1;
-              let rainYLocation = Math.random() * -500;
-              let randomRainHeight = randomNum(10, 2);
-              let randomSpeed = randomNum(20, 0.2);
-              let randomOpacity = Math.random() * 0.55;
-
-              if (window.innerWidth < 600) {
-                randomRainHeight *= 0.5;
-                randomSpeed *= 0.5;
-              }
-
-              rainArray.push(
-                new RainDrops(
-                  rainXLocation,
-                  rainYLocation,
-                  randomRainHeight,
-                  randomSpeed,
-                  randomOpacity
-                )
-              );
-            }
-          });
-
-          animateRain();
-        } else {
-          console.error("Canvas element not found");
-        }
-      };
-    </script>
+    <script src="/public/js/app.js" defer></script>
+    <script src="/public/libs/rain.js" defer></script>
   </body>
 </html>
