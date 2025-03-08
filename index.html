@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="/src/assets/css/main.css" />
   </head>
   <body>
+    <audio id="background-music" src="/audios/forest_sound.mp3" loop></audio>
+
+    <div
+      id="sound-message"
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+      "
+    ></div>
+
     <section class="layers">
       <div class="layers__container">
         <div
@@ -34,8 +49,22 @@
         ></div>
       </div>
     </section>
+
     <script type="module" src="/src/main.jsx"></script>
     <script src="/js/app.js" defer></script>
     <script src="/libs/rain.js" defer></script>
+
+    <script>
+      document.addEventListener(
+        "click",
+        () => {
+          const audio = document.getElementById("background-music");
+          audio.volume = 1;
+          audio.play();
+          document.getElementById("sound-message").style.display = "none";
+        },
+        { once: true }
+      );
+    </script>
   </body>
 </html>
